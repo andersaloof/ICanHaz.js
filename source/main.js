@@ -43,6 +43,15 @@
                 };
             }
         },
+        
+        // clears one template
+        clearTemplate: function (name){
+            if (ich.templates[name]) {
+                delete ich[name];
+                delete ich.templates[name];
+            }
+        },
+
 
         // clears all retrieval functions and empties cache
         clearAll: function () {
