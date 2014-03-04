@@ -83,6 +83,16 @@ test("clearAll should wipe 'em out", function () {
     equal(ich.welcome2, undefined, "welcome2 template gone?");
 });
 
+test("clearTemplate should remove a single template", function () {
+    ich.addTemplate('rottenBananas', "<p>The banana is rotten</p>")
+    ich.clearTemplate('rottenBananas');
+
+    ok(isEmptyObject(ich.templates));
+    ok(isEmptyObject(ich.partials));
+
+    equal(ich.rotten_bananas, undefined, "rottenBananas template gone?");
+});
+
 test("grabTemplates that are loaded in later", function () {
     // not recommended use, but should work nonetheless
     var el = document.createElement('script');
